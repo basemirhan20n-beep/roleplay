@@ -618,7 +618,7 @@ async def gunluk_ceza_isle(context: ContextTypes.DEFAULT_TYPE):
             pass
 
 
-def main():
+async def main():
     app = Application.builder().token(BOT_TOKEN).build()
 
     app.add_handler(CommandHandler("start", start))
@@ -641,8 +641,8 @@ def main():
     )
 
     logger.info("Bot başlatılıyor...")
-    app.run_polling(allowed_updates=Update.ALL_TYPES)
-
+    await app.run_polling(allowed_updates=Update.ALL_TYPES)
 
 if __name__ == "__main__":
-    main()
+    import asyncio
+    asyncio.run(main())
