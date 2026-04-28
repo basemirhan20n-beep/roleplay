@@ -8,7 +8,9 @@ from telegram.ext import (
     ContextTypes, MessageHandler, filters
 )
 from database import Database
-from config import BOT_TOKEN, ADMIN_IDS
+import os
+BOT_TOKEN = os.getenv("BOT_TOKEN", "")
+ADMIN_IDS: list[int] = []
 
 logging.basicConfig(
     format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
